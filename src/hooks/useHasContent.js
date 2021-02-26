@@ -1,8 +1,6 @@
 import { useMemo } from 'react';
 
 const useHasContent = ({ isLoading, content }) => {
-  console.log('content', content);
-
   const hasContent = useMemo(() => {
     const isArrayContent = content.constructor === Array;
     const isObjectContent = content.constructor === Object;
