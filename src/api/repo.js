@@ -18,6 +18,9 @@ export function fetchReposAsync({ user, pageSize, pageNum }) {
     params: {
       per_page: pageSize,
       page: pageNum
+    },
+    headers: {
+      Authorization: 'token 50aa79baf4ad37e12d204053cdc7bec4fbee6de7'
     }
   });
 }
