@@ -11,7 +11,7 @@ const spin = keyframes`
 `;
 
 export const StyledContainer = styled.div`
-  padding: 50px;
+  padding: 50px 50px 0 50px;
 `;
 
 export const StyledTitle = styled.h1`
@@ -35,7 +35,7 @@ export const StyledLink = styled.a`
   word-break: break-all;
 `;
 
-export const StyleLoadingObserver = styled.div`
+export const StyledTarget = styled.div`
   margin: 15px auto;
   border: 5px solid #f3f3f3;
   border-top: 5px solid #e6a35e;
@@ -43,4 +43,15 @@ export const StyleLoadingObserver = styled.div`
   width: 20px;
   height: 20px;
   animation: ${spin} 2s linear infinite;
+`;
+
+export const StyledNonContextContainer = styled.div`
+  padding: 150px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p {
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.25);
+  }
 `;
