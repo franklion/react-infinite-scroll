@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-if (process.env.ACCESS_TOKEN || process.env.REACT_APP_ACCESS_TOKEN) {
-  axios.defaults.headers.common['Authorization'] = `token ${process.env.REACT_APP_ACCESS_TOKEN}`;
+if (process.env.ACCESS_TOKEN) {
+  axios.defaults.headers.common['Authorization'] = `token ${process.env.ACCESS_TOKEN}`;
 }
 
 /**
