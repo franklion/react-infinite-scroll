@@ -6,10 +6,7 @@ const useIntersection = ({ update }) => {
   const refObserver = useRef(
     new window.IntersectionObserver(
       ([entry]) => {
-        if (entry && entry.isIntersecting) {
-          console.log('update');
-          update();
-        }
+        if (entry && entry.isIntersecting) update();
       },
       {
         root: refContainer.current,

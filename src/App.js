@@ -18,9 +18,7 @@ const App = () => {
   });
 
   useSkipFirstMount(() => {
-    if (params) {
-      execute(params);
-    }
+    if (params) execute(params);
   }, [params]);
 
   useEffect(() => {
