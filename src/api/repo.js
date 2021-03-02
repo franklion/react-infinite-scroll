@@ -1,5 +1,9 @@
 import axios from 'axios';
 
+if (process.env.REACT_APP_ACCESS_TOKEN) {
+  axios.defaults.headers.common['Authorization'] = `token ${process.env.REACT_APP_ACCESS_TOKEN}`;
+}
+
 /**
  * @typedef {Object} LoginResponse
  * @property {number} code - 請求回應代碼
@@ -18,9 +22,6 @@ export function fetchReposAsync({ user, pageSize, pageNum }) {
     params: {
       per_page: pageSize,
       page: pageNum
-    },
-    headers: {
-      Authorization: 'token 50aa79baf4ad37e12d204053cdc7bec4fbee6de7'
     }
   });
 }
