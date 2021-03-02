@@ -10,10 +10,7 @@ import { StyledContainer, StyledTitle, StyledIcon, StyledCard, StyledLink, Style
 const App = () => {
   const [params, setParams] = useState(cons.INIT_PARAMS);
   const [repos, setRepos] = useState([]);
-  const { execute, response, error } = useAsync(fetchReposAsync, {
-    immediate: true,
-    initParams: params
-  });
+  const { execute, response, error } = useAsync(fetchReposAsync);
   const [refObserver, refContainer, refTarget] = useIntersection({
     update: function () {
       setParams((prevParams) => ({ ...prevParams, pageNum: prevParams.pageNum + 1 }));
@@ -22,9 +19,7 @@ const App = () => {
 
   useSkipFirstMount(() => {
     if (params) {
-      setTimeout(() => {
-        execute(params);
-      }, 1000);
+      execute(params);
     }
   }, [params]);
 

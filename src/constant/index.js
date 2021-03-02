@@ -1,8 +1,8 @@
 const cons = {
   INIT_PARAMS: {
     user: 'franklion',
-    pageNum: 1,
-    pageSize: 5
+    pageNum: 0,
+    pageSize: 10
   }
 };
 
