@@ -6,8 +6,11 @@ import { fetchReposAsync } from './api/repo';
 import iconLion from './static/lion.png';
 import cons from './constant';
 import { StyledContainer, StyledTitle, StyledIcon, StyledCard, StyledLink, StyledTarget } from './styles/styled';
+import Snackbar from '@material-ui/core/Snackbar';
+import Alert from '@material-ui/lab/Alert';
 
 const App = () => {
+  const [isShowAlert, setIsShowAlert] = useState(false);
   const [params, setParams] = useState(cons.INIT_PARAMS);
   const [repos, setRepos] = useState([]);
   const { execute, response, error } = useAsync(fetchReposAsync);
@@ -32,14 +35,27 @@ const App = () => {
 
   useEffect(() => {
     if (error) {
-      console.log('API 請求到達上限，請稍候再試！');
+      setIsShowAlert(true);
       refObserver.current.disconnect();
       refTarget.current.remove();
     }
   }, [error, refObserver, refTarget]);
 
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') return;
+    setIsShowAlert(false);
+  };
+
   return (
     <StyledContainer rel={refContainer}>
+      <Snackbar
+        open={isShowAlert}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+        autoHideDuration={3500}
+        onClose={handleClose}>
+        <Alert severity="warning">{cons.ALERT_MESSAGE}</Alert>
+      </Snackbar>
+
       <StyledTitle>
         <StyledIcon src={iconLion} alt="lion" />
         {cons.INIT_PARAMS.user} repo list:
