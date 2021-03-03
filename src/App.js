@@ -67,7 +67,7 @@ const App = () => {
         <Alert severity="warning">{cons.ALERT_MESSAGE}</Alert>
       </Snackbar>
 
-      <Typography variant="h3" gutterBottom={true}>
+      <Typography variant="h4" gutterBottom={true}>
         <Avatar src={iconLion} variant="rounded" className={classesIconLion.root} />
         {cons.INIT_PARAMS.user} repo list:
       </Typography>
