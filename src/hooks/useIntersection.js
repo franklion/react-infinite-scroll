@@ -1,6 +1,19 @@
 import { useEffect, useRef } from 'react';
 
-const useIntersection = ({ update }) => {
+/**
+ * 返回內容
+ * @typedef {Array} Collection
+ * @property {Object} refObserver - 觀察者實例
+ * @property {element} refContainer - 容器
+ * @property {element} refTarget - 觀察目標
+ */
+
+/**
+ * 偵測元素是否已經進入可視範圍
+ * @param {function} update - 進入可視範圍後觸發的回調函式
+ * @returns {Array<Collection>}
+ */
+const useIntersection = (update) => {
   const refContainer = useRef(null);
   const refTarget = useRef(null);
   const refObserver = useRef(

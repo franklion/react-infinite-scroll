@@ -25,10 +25,8 @@ const App = () => {
   const [params, setParams] = useState(cons.INIT_PARAMS);
   const [repos, setRepos] = useState([]);
   const { execute, response, error } = useAsync(fetchReposAsync);
-  const [refObserver, refContainer, refTarget] = useIntersection({
-    update: function () {
-      setParams((prevParams) => ({ ...prevParams, pageNum: prevParams.pageNum + 1 }));
-    }
+  const [refObserver, refContainer, refTarget] = useIntersection(function () {
+    setParams((prevParams) => ({ ...prevParams, pageNum: prevParams.pageNum + 1 }));
   });
 
   useSkipFirstMount(() => {

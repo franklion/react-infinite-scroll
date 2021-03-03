@@ -5,15 +5,15 @@ import { useState, useEffect, useCallback, useRef } from 'react';
  * @typedef {Object} Collection
  * @property {function} execute - 執行非同步請求
  * @property {boolean} isLoading - 請求是否為載入中
- * @property {Object} response - 請求得到的資訊
+ * @property {object} response - 請求得到的資訊
  * @property {string} error - 錯誤訊息
  */
 
 /**
  * 選擇性參數
- * @typedef {Object} Options
+ * @typedef {object} Options
  * @property {boolean} [immediate] - 是否立即呼叫非同步請求
- * @property {Object|*} [initParams] - 立即呼叫非同步請求的參數
+ * @property {object|*} [initParams] - 立即呼叫非同步請求的參數
  */
 
 /**
@@ -24,7 +24,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 /**
  * 處理非同步請求
  * @param {AsyncCallback} asyncFunction - 非同步請求
- * @param {Options} options - 選擇性參數
+ * @param {options} options - 選擇性參數
  * @returns {Object<Collection>}
  */
 const useAsync = (asyncFunction, { immediate = false, initParams = null } = {}) => {
