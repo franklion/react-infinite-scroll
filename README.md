@@ -1,6 +1,6 @@
 # React Infinite Scroll
 
-![image](https://i.imgur.com/iLsK7o0.png)
+![image](https://imgur.com/FGSAm2h.png)
 
 # Installation
 
