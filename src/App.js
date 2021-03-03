@@ -5,11 +5,22 @@ import useIntersection from './hooks/useIntersection';
 import { fetchReposAsync } from './api/repo';
 import iconLion from './static/lion.png';
 import cons from './constant';
-import { StyledContainer, StyledTitle, StyledIcon, StyledCard, StyledLink, StyledTarget } from './styles/styled';
+
+// material-ui
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+import Link from '@material-ui/core/Link';
+import Avatar from '@material-ui/core/Avatar';
 import Snackbar from '@material-ui/core/Snackbar';
 import Alert from '@material-ui/lab/Alert';
+import { useStylesContainer, useStylesIconLion, useStylesCard, useStylesTarget } from './styles/styled';
 
 const App = () => {
+  const classesContainer = useStylesContainer();
+  const classesIconLion = useStylesIconLion();
+  const classesCard = useStylesCard();
+  const classesTarget = useStylesTarget();
+
   const [isShowAlert, setIsShowAlert] = useState(false);
   const [params, setParams] = useState(cons.INIT_PARAMS);
   const [repos, setRepos] = useState([]);
@@ -47,7 +58,7 @@ const App = () => {
   };
 
   return (
-    <StyledContainer rel={refContainer}>
+    <Container maxWidth="lg" className={classesContainer.root} rel={refContainer}>
       <Snackbar
         open={isShowAlert}
         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
@@ -56,23 +67,23 @@ const App = () => {
         <Alert severity="warning">{cons.ALERT_MESSAGE}</Alert>
       </Snackbar>
 
-      <StyledTitle>
-        <StyledIcon src={iconLion} alt="lion" />
+      <Typography variant="h3" gutterBottom={true}>
+        <Avatar src={iconLion} variant="rounded" className={classesIconLion.root} />
         {cons.INIT_PARAMS.user} repo list:
-      </StyledTitle>
+      </Typography>
 
       {repos.map((repo) => (
-        <StyledCard key={repo.id}>
-          <h2>{repo.name}</h2>
-          <p>{repo.description}</p>
-          <StyledLink href={repo.html_url} rel="noreferrer" target="_blank">
-            {repo.html_url}
-          </StyledLink>
-        </StyledCard>
+        <div key={repo.id} className={classesCard.root}>
+          <Typography variant="h6" noWrap={true} children={repo.name} />
+          <Typography variant="body1" noWrap={true} children={repo.description} />
+          <Typography noWrap>
+            <Link href={repo.html_url} target="_blank" rel="noopener" children={repo.html_url} />
+          </Typography>
+        </div>
       ))}
 
-      <StyledTarget ref={refTarget} />
-    </StyledContainer>
+      <div ref={refTarget} className={classesTarget.root} />
+    </Container>
   );
 };
 

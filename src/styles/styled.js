@@ -1,57 +1,49 @@
-import styled, { keyframes } from 'styled-components';
+import { makeStyles } from '@material-ui/core/styles';
 
-const spin = keyframes`
-  from {
-    transform: rotate(0deg);
+export const useStylesContainer = makeStyles((theme) => ({
+  root: {
+    padding: '25px 20px 0 20px',
+    [theme.breakpoints.up('md')]: {
+      padding: '50px 50px 0 50px'
+    }
   }
+}));
 
-  to {
-    transform: rotate(360deg);
+export const useStylesIconLion = makeStyles({
+  root: {
+    width: '50px',
+    marginRight: '10px',
+    display: 'inline-block',
+    verticalAlign: 'baseline'
   }
-`;
+});
 
-export const StyledContainer = styled.div`
-  padding: 50px 50px 0 50px;
-`;
-
-export const StyledTitle = styled.h1`
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-`;
-
-export const StyledIcon = styled.img`
-  width: 50px;
-  margin-right: 10px;
-`;
-
-export const StyledCard = styled.div`
-  border: 1px solid #ccc;
-  padding: 20px;
-  margin-bottom: 20px;
-`;
-
-export const StyledLink = styled.a`
-  word-break: break-all;
-`;
-
-export const StyledTarget = styled.div`
-  margin: 15px auto;
-  border: 5px solid #f3f3f3;
-  border-top: 5px solid #e6a35e;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  animation: ${spin} 2s linear infinite;
-`;
-
-export const StyledNonContextContainer = styled.div`
-  padding: 150px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  p {
-    font-size: 18px;
-    color: rgba(0, 0, 0, 0.25);
+export const useStylesCard = makeStyles({
+  root: {
+    padding: '20px',
+    marginBottom: '20px',
+    borderRadius: '4px',
+    backgroundColor: '#fff',
+    boxShadow: '0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%)'
   }
-`;
+});
+
+export const useStylesTarget = makeStyles({
+  '@keyframes spin': {
+    from: {
+      transform: 'rotate(0deg)'
+    },
+    to: {
+      transform: 'rotate(360deg)'
+    }
+  },
+  root: {
+    margin: '15px auto',
+    border: '5px solid #f3f3f3',
+    borderTop: '5px solid #e6a35e',
+    borderRadius: '50%',
+    width: '20px',
+    height: '20px',
+    animation: '$spin 2s linear infinite'
+  }
+});

@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import GlobalStyle from './styles/globalStyles.js';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <>
-    <GlobalStyle />
+    <CssBaseline />
     <App />
   </>,
   document.getElementById('root')
