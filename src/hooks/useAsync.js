@@ -24,7 +24,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 /**
  * 處理非同步請求
  * @param {AsyncCallback} asyncFunction - 非同步請求
- * @param {options} options - 選擇性參數
+ * @param {Options} options - 選擇性參數
  * @returns {Object<Collection>}
  */
 const useAsync = (asyncFunction, { immediate = false, initParams = null } = {}) => {

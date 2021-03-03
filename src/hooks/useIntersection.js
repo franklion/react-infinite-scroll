@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 /**
  * 返回內容
  * @typedef {Array} Collection
- * @property {Object} refObserver - 觀察者實例
+ * @property {object} refObserver - 觀察者實例
  * @property {element} refContainer - 容器
  * @property {element} refTarget - 觀察目標
  */
